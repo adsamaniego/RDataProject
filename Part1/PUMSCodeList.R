@@ -1,10 +1,8 @@
 #url to 2012-2016 PUMS Code List
-#url <- "https://www2.census.gov/programs-surveys/acs/tech_docs/pums/code_lists/ACSPUMS2012_2016CodeLists.xlsx"
-#Download excel file
-#download.file(url, destfile = "ACSPUMS2012_2016CodeLists.xlsx")
-#rm(url)
-###Downloaded .xlsx file is corrupted?
-###Manually downloading/reading "ACSPUMS2012_2016CodeLists.xlsx" temporarily
+url <- "https://www2.census.gov/programs-surveys/acs/tech_docs/pums/code_lists/ACSPUMS2012_2016CodeLists.xlsx"
+#Download excel file, read in as binary?
+download.file(url, destfile = "ACSPUMS2012_2016CodeLists.xlsx", mode="wb")
+rm(url)
 
 #Ancestry
 #Read excel file, ancestry codes stored on 1st sheet, store in data frame
