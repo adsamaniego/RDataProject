@@ -99,6 +99,7 @@ library(readxl)
 #Occupation
 #Goes with variable OCCP
 #Occupation data is not stored in a table format, will do manually
+<<<<<<< HEAD
 #CodesLowerLimit <- c("0010", "3600", "4700", "6000", "7700")
 #CodesUpperLimit <- c("3540", "4650", "5940", "7630", "9750")
 #Description <- c("Management, Business, Science, and Arts",
@@ -111,6 +112,20 @@ library(readxl)
 #dfOCCP[,3] <- Description
 #rm("CodesLowerLimit", "CodesUpperLimit", "Description")
 #colnames(dfOCCP) <- c("Code Lower Limit", "Code Upper Limit", "PUMS Occupation Description")
+=======
+CodesLowerLimit <- c("0010", "3600", "4700", "6000", "7700")
+CodesUpperLimit <- c("3540", "4650", "5940", "7630", "9750")
+Description <- c("Management, Business, Science, and Arts Occupations",
+                 "Service Occupations",
+                 "Sales and Office Occupations",
+                 "Natural Resources, Construction, and Maintenance Occupations",
+                 "Production, Transportation, and Material Moving Occupations")
+dfOCCP <- data.frame(CodesLowerLimit)
+dfOCCP[,2] <- CodesUpperLimit
+dfOCCP[,3] <- Description
+rm("CodesLowerLimit", "CodesUpperLimit", "Description")
+colnames(dfOCCP) <- c("Code Lower Limit", "Code Upper Limit", "PUMS Occupation Description")
+>>>>>>> b5c3c66b1500f006cf09f6e094a1ebeb7a1e7aa0
 #dfOCCP <- dfOCCP[complete.cases(dfOCCP),]
 
 #POBirth
@@ -162,8 +177,14 @@ dfPUMA$Name = factor(dfPUMA$Name, levels(dfPUMA$Name)[c(15,3,2,1,21,7,4,14,9,8,1
 
 ###Clean up dfh
 #Remove unnecessary columns
+<<<<<<< HEAD
 dfh <- dfh[,c("SERIALNO", "PUMA", "ADJHSG", "ADJINC", "WGTP", "NP", "TYPE", "AGS", "BLD",
               "TEN", "VACS", "VALP", "FES", "FINCP", "HINCP", "HUPAC", "OCPIP", "WIF")]
+=======
+dfh <- dfh[,c("SERIALNO", "PUMA", "ADJHSG", "ADJINC", "WGTP", "NP", "TYPE", "AGS",
+              "BLD", "BUS", "TEN", "VACS", "VALP", "FES", "FINCP", "HINCP", "HUPAC",
+              "MV", "OCPIP", "WIF", "WKEXREL", "WORKSTAT")]
+>>>>>>> b5c3c66b1500f006cf09f6e094a1ebeb7a1e7aa0
 #Change column types
 dfh$SERIALNO <- as.factor(dfh$SERIALNO)
 dfh$PUMA <- as.factor(dfh$PUMA)
@@ -208,7 +229,11 @@ levels(dfh$WIF) <- c("0 Workers", "1 Worker", "2 Workers", "3+ Workers")
 dfp <- dfp[,c("SERIALNO", "PUMA", "ADJINC", "PWGTP", "AGEP", "COW", "DDRS", "DEAR", "DEYE",
               "DOUT", "DPHY", "DRATX", "DREM", "FER", "HINS1", "HINS2", "HINS3", "HINS4",
               "HINS5", "HINS6", "HINS7", "INTP", "OIP", "PAP", "RETP", "SEMP", "SEX", "SSIP",
+<<<<<<< HEAD
               "SSP", "WAGP", "DIS", "ESR", "HICOV", "PERNP", "PINCP", "PRIVCOV", "PUBCOV")]
+=======
+              "SSP", "WAGP", "DIS", "ESR", "HICOV", "OCCP", "PERNP", "PINCP", "PRIVCOV", "PUBCOV")]
+>>>>>>> b5c3c66b1500f006cf09f6e094a1ebeb7a1e7aa0
 #Change column types
 dfp$SERIALNO <- as.factor(dfp$SERIALNO)
 dfp$PUMA <- as.factor(dfp$PUMA)
@@ -244,6 +269,7 @@ dfp$HICOV <- as.factor(dfp$HICOV)
 dfp$PERNP <- as.integer(dfp$PERNP*dfp$ADJINC)
 dfp$PINCP <- as.integer(dfp$PINCP*dfp$ADJINC)
 dfp$PRIVCOV <- as.factor(dfp$PRIVCOV)
+<<<<<<< HEAD
 dfp$PUBCOV <- as.factor(dfp$PUBCOV)
 #Properly reading factors
 #PUMA
@@ -280,3 +306,6 @@ levels(dfp$ESR) <- c("Civilian Employed", "Civilian Employed", "Unemployed", "Ar
 levels(dfp$HICOV) <- c("With Health Insurance Coverage", "Without Health Insurance Coverage")
 levels(dfp$PRIVCOV) <- c("With Private Coverage", "Without Private Coverage")
 levels(dfp$PUBCOV) <- c("With Public Coverage", "Without Public Coverage")
+=======
+dfp$PUBCOV <- as.factor(dfp$PUBCOV)
+>>>>>>> b5c3c66b1500f006cf09f6e094a1ebeb7a1e7aa0
