@@ -12,7 +12,7 @@ dfh <- read.csv("ss16hia.csv")
 #use to identify which columns you want available in the people file before the merge
 #make sure to enter the columns names of the columns you want to use from the person file (dfp)
 #already included serialno, wages, race, gender, occupation, private or public health coverage 
-usecols <- c("SERIALNO", "WAGP", "PERNP", "PINCP", "OCCP", "RAC2P", "RAC3P", "PUBCOV", "PRIVCOV", "HICOV", "SEX")
+usecols <- c("SERIALNO", "WAGP", "PERNP", "PINCP", "OCCP", "RAC2P", "RAC3P", "PUBCOV", "PRIVCOV", "AGEP", "HICOV", "SEX")
 
 #trim people data frame before merge
 dfptrim <- dfp[ ,usecols]
